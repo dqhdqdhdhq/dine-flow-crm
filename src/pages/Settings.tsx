@@ -90,13 +90,13 @@ const Settings = () => {
     }
   });
 
-  // Table configurations
+  // Table configurations - Update the 'patio' section to 'outdoor' to match the Table type
   const [tables, setTables] = useState<Table[]>([
     { id: '1', number: 1, capacity: 2, status: 'available', section: 'main', location: 'Main Dining' },
     { id: '2', number: 2, capacity: 4, status: 'available', section: 'main', location: 'Main Dining' },
     { id: '3', number: 3, capacity: 6, status: 'available', section: 'main', location: 'Main Dining' },
-    { id: '4', number: 4, capacity: 2, status: 'available', section: 'patio', location: 'Patio' },
-    { id: '5', number: 5, capacity: 4, status: 'available', section: 'patio', location: 'Patio' },
+    { id: '4', number: 4, capacity: 2, status: 'available', section: 'outdoor', location: 'Patio' },
+    { id: '5', number: 5, capacity: 4, status: 'available', section: 'outdoor', location: 'Patio' },
     { id: '6', number: 6, capacity: 8, status: 'available', section: 'private', location: 'Private Room' }
   ]);
 
