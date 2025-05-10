@@ -90,6 +90,7 @@ export interface InventoryItem {
   description: string;
   sku: string;
   category: string;
+  subcategory?: string;
   unit: string;
   unitCost: number;
   quantityOnHand: number;
@@ -102,6 +103,14 @@ export interface InventoryItem {
   currentStock?: number; // Added for backward compatibility
   lowStockThreshold?: number; // Added for backward compatibility
   cost?: number; // Added for backward compatibility
+  // Enhanced item details for Phase 1
+  storageLocation?: string;
+  expirationDate?: string;
+  lotNumber?: string;
+  imageUrl?: string;
+  markupPercentage?: number;
+  menuItems?: string[];
+  lastCountDate?: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -144,6 +153,57 @@ export interface Supplier {
   address: string;
   productsSupplied: string[];
   status: 'active' | 'inactive' | 'pending';
+  createdAt: string;
+  updatedAt: string;
+}
+
+// Stock tracking related types
+export type StockMovementType = 'purchase' | 'sale' | 'waste' | 'adjustment' | 'transfer' | 'count';
+
+export interface StockMovement {
+  id: string;
+  inventoryItemId: string;
+  type: StockMovementType;
+  quantity: number;
+  previousQuantity: number;
+  newQuantity: number;
+  reason?: string;
+  sourceLocationId?: string;
+  destinationLocationId?: string;
+  performedBy: string;
+  createdAt: string;
+}
+
+export interface InventoryCount {
+  id: string;
+  name: string;
+  status: 'draft' | 'in-progress' | 'completed';
+  startDate: string;
+  endDate?: string;
+  countItems: InventoryCountItem[];
+  createdBy: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface InventoryCountItem {
+  id: string;
+  inventoryCountId: string;
+  inventoryItemId: string;
+  expectedQuantity: number;
+  actualQuantity: number;
+  variance: number;
+  varianceValue: number;
+  notes?: string;
+  countedBy: string;
+  countedAt: string;
+}
+
+export interface StorageLocation {
+  id: string;
+  name: string;
+  type: 'dry-storage' | 'refrigerator' | 'freezer' | 'bar' | 'other';
+  description?: string;
   createdAt: string;
   updatedAt: string;
 }
