@@ -1,4 +1,3 @@
-
 // User-related types
 export interface User {
   id: string;
@@ -7,7 +6,8 @@ export interface User {
   email: string;
   image?: string;
   avatarUrl?: string; // Added for backward compatibility
-  isActive?: boolean; // Adding isActive property
+  isActive?: boolean; // Added isActive property
+  lastLogin?: string; // Added lastLogin property to fix errors in Settings.tsx
 }
 
 export interface Customer {

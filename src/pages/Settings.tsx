@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Tabs, 
@@ -93,12 +92,12 @@ const Settings = () => {
 
   // Table configurations
   const [tables, setTables] = useState<Table[]>([
-    { id: '1', number: 1, capacity: 2, status: 'available', location: 'Main Dining' },
-    { id: '2', number: 2, capacity: 4, status: 'available', location: 'Main Dining' },
-    { id: '3', number: 3, capacity: 6, status: 'available', location: 'Main Dining' },
-    { id: '4', number: 4, capacity: 2, status: 'available', location: 'Patio' },
-    { id: '5', number: 5, capacity: 4, status: 'available', location: 'Patio' },
-    { id: '6', number: 6, capacity: 8, status: 'available', location: 'Private Room' }
+    { id: '1', number: 1, capacity: 2, status: 'available', section: 'main', location: 'Main Dining' },
+    { id: '2', number: 2, capacity: 4, status: 'available', section: 'main', location: 'Main Dining' },
+    { id: '3', number: 3, capacity: 6, status: 'available', section: 'main', location: 'Main Dining' },
+    { id: '4', number: 4, capacity: 2, status: 'available', section: 'patio', location: 'Patio' },
+    { id: '5', number: 5, capacity: 4, status: 'available', section: 'patio', location: 'Patio' },
+    { id: '6', number: 6, capacity: 8, status: 'available', section: 'private', location: 'Private Room' }
   ]);
 
   // Reservation configurations
@@ -170,6 +169,7 @@ const Settings = () => {
       number: tables.length + 1,
       capacity: 4,
       status: 'available',
+      section: 'main',
       location: 'Main Dining'
     };
     setTables([...tables, newTable]);
